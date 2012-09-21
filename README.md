@@ -9,15 +9,11 @@ breadcrumb format.
 
 Add this line to your application's Gemfile:
 
-    gem 'has_breadcrumb'
+    gem 'has_breadcrumb', :git => 'git://github.com/sqm/has_breadcrumb.git'
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install has_breadcrumb
 
 ## Usage
 
