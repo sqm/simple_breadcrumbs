@@ -1,6 +1,9 @@
 # HasBreadcrumb
 
-This gem produces a series of links in a breadcrumb format.
+This gem extends models in Rails to provide a `breadcrumb_parent` and
+`breadcrumb_name` method to any model. It also provides a view method,
+`breadcrumb()`, which shows the links to the page and its parents in a
+breadcrumb format.
 
 ## Installation
 
@@ -18,15 +21,38 @@ Or install it yourself as:
 
 ## Usage
 
-`has_breadcrumb` should be used within a model if you are using Rails.
+In your model:
 
-Return a breadcrumb link series with a provided page name. (The `:title`
-option can be passed either as a string or a symbol)
+    class User < ActiveRecord::Base
+      has_breadcrumb :title => :username
+    end
 
-    has_breadcrumb :title => "Page Name"
+If you would like to display a model as a child of another model, you
+can state that using the `:parent` option:
 
-`has_breadcrumb` will also accept the `:parent` option passed as a
-symbol.
+    class UserProfile < ActiveRecord::Base
+      has_breadcrumb :parent => :user, :title => "Profile"
+    end
+
+As can be seen here, `has_breadcrumb` can accept a `String` on the
+`:title` option, which is useful in the case where there is no field in
+the model which would be suitable. The `:parent` option however, must
+take a `Symbol`.
+
+In addition to giving models breadcrumb object, breadcrumb links can be
+displayed in a view. For example in an erb view for creating a new user,
+
+    <h2 class="subtitle"><%= breadcrumb @user, 'New' %></h2>
+
+will provide a link which includes the Index page and the controller
+action to which this page is related.
+
+Other options allowed by the `breadcrumb` method include
+`:forced_parent`, which links to a non-natural parent of the current
+view page.
+
+By default, `breadcrumb` includes a link to the index of an object when only
+one level exists.
 
 ## Contributing
 
