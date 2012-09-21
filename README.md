@@ -1,6 +1,6 @@
 # HasBreadcrumb
 
-TODO: Write a gem description
+This gem produces a series of links in a breadcrumb format.
 
 ## Installation
 
@@ -18,7 +18,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+`has_breadcrumb` should be used within a model if you are using Rails.
+
+Return a breadcrumb link series with a provided page name. (The `:title`
+option can be passed either as a string or a symbol)
+
+    has_breadcrumb :title => "Page Name"
+
+`has_breadcrumb` will also accept the `:parent` option passed as a
+symbol.
 
 ## Contributing
 
