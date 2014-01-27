@@ -1,5 +1,3 @@
 require "has_breadcrumb/version"
-
-module HasBreadcrumb
-  # Your code goes here...
-end
+require "has_breadcrumb/has_breadcrumb.rb"
+require "has_breadcrumb/show_breadcrumb.rb"
