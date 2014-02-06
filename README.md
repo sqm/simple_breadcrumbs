@@ -35,8 +35,8 @@ As can be seen here, `has_breadcrumb` can accept a `String` on the
 the model which would be suitable. The `:parent` option however, must
 take a `Symbol`.
 
-In addition to giving models breadcrumb object, breadcrumb links can be
-displayed in a view. For example in an erb view for creating a new user,
+Breadcrumb links can be displayed in a view by including `breadcrumb` in an erb tag. 
+For example in an erb view for creating a new user,
 
     <h2 class="subtitle"><%= breadcrumb @user, 'New' %></h2>
 
