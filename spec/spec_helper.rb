@@ -9,6 +9,15 @@ require 'rails/all'
 require 'rspec/rails'
 require 'has_breadcrumb'
 
+ActiveSupport.on_load(:active_record) do
+  include HasBreadcrumb
+end
+
+ActiveSupport.on_load(:action_controller) do
+  include ActionView::Helpers
+  include ShowBreadcrumb
+end
+
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
