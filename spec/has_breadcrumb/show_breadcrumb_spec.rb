@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-module ShowBreadcrumb
-  extend self
+class ObjectWithBreadcrumb
+  include ShowBreadcrumb
 end
 
 describe ShowBreadcrumb do
@@ -10,33 +10,39 @@ describe ShowBreadcrumb do
   let(:user) { User.create(:name => "Users") }
   let(:controller) { ActionController::Base.new }
 
-  describe ".breadcrumbs" do
-    context "when :forced_parent is passed" do
-      it "should link to the forced parent" do
-        controller.stub(:url_for => "fake_url")
-        controller.breadcrumb(user, "Add", :forced_parent => admin).should == "<a href=\"fake_url\">Admin</a> &gt; <a href=\"fake_url\">Users</a> &gt; Add User"
-      end
-    end
+  describe "#collect_crumbs" do
+    subject(:object_with_breadcrumb) { ObjectWithBreadcrumb.new }
 
-    context "when there is only one crumb" do
-      it "should not return a parent link" do
-        controller.stub(:url_for => "fake_url")
-        controller.breadcrumb(admin, "Add").should == "<a href=\"fake_url\">Admins</a> &gt; <a href=\"fake_url\">Admin</a> &gt; Add Admin"
-      end
-    end
-  end
-
-  describe ".lookup_breadcrumb" do
     context "when an object has no parent" do
       it "should return an array containing itself" do
-        ShowBreadcrumb.lookup_breadcrumb(admin, []).should == [admin]
+        crumbs = object_with_breadcrumb.collect_crumbs(admin, [])
+        expect(crumbs).to eq([admin])
       end
     end
 
     context "when an object has a parent" do
       it "should return an array with itself and parents" do
         user.manager = manager
-        ShowBreadcrumb.lookup_breadcrumb(user, []).should == [user, manager]
+        crumbs = object_with_breadcrumb.collect_crumbs(user, [])
+        expect(crumbs).to eq([user, manager])
+      end
+    end
+  end
+
+  describe "#breadcrumbs" do
+    before { controller.stub(url_for: "fake_url") }
+
+    context "when :forced_parent is passed" do
+      it "should link to the forced parent" do
+        breadcrumb = controller.breadcrumb(user, "Add", forced_parent: admin)
+        expect(breadcrumb).to eq("<a href=\"fake_url\">Admin</a> &gt; <a href=\"fake_url\">Users</a> &gt; Add User")
+      end
+    end
+
+    context "when there is only one crumb" do
+      it "should not return a parent link" do
+        breadcrumb = controller.breadcrumb(admin, "Add")
+        expect(breadcrumb).to eq("<a href=\"fake_url\">Admins</a> &gt; <a href=\"fake_url\">Admin</a> &gt; Add Admin")
       end
     end
   end
