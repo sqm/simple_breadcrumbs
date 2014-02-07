@@ -1,6 +1,6 @@
 module ShowBreadcrumb
   # Recursive function to lookup through parent breadcrumbs
-  def collect_crumbs(obj, crumbs)
+  def collect_crumbs(obj, crumbs=[])
     crumbs << obj
     crumbs = collect_crumbs(obj.breadcrumb_parent, crumbs) unless obj.breadcrumb_parent.nil?
     crumbs
@@ -9,8 +9,7 @@ module ShowBreadcrumb
   # View helper to generate breadcrumbs
   def breadcrumb(obj, action = nil, options = {})
     crumb_html = ""
-    crumbs = Array.new
-    crumbs = collect_crumbs(obj, crumbs)
+    crumbs = collect_crumbs(obj)
 
     if options.has_key?(:forced_parent)
       crumb_link = url_for :controller => options[:forced_parent].class.to_s.underscore.pluralize, :action => "show", :id => options[:forced_parent].id

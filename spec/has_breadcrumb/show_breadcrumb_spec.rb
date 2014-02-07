@@ -5,9 +5,9 @@ class ObjectWithBreadcrumb
 end
 
 describe ShowBreadcrumb do
-  let(:admin) { Admin.create(:name => "Admins") }
-  let(:manager) { Manager.create(:name => "Managers") }
-  let(:user) { User.create(:name => "Users") }
+  let(:admin) { Admin.create(name: "Admins") }
+  let(:manager) { Manager.create(name: "Managers") }
+  let(:user) { User.create(name: "Users") }
   let(:controller) { ActionController::Base.new }
 
   describe "#collect_crumbs" do

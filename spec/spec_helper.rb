@@ -18,6 +18,8 @@ ActiveSupport.on_load(:action_controller) do
   include ShowBreadcrumb
 end
 
+I18n.enforce_available_locales = false
+
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
