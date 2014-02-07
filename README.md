@@ -1,9 +1,9 @@
 # HasBreadcrumb
 
-This gem extends models in Rails to provide a `breadcrumb_parent` and
-`breadcrumb_name` method to any model. It also provides a view method,
-`breadcrumb()`, which shows the links to the page and its parents in a
-breadcrumb format.
+This gem provides a simple and flexible way to create breadcrumbs with Rails active record 
+models. Setting `has_breadcrumb` on a model will enable a view method,
+`breadcrumb()`, which will show the links to the page and its parents in
+a breadcrumb format.
 
 ## Installation
 
@@ -23,8 +23,8 @@ In your model:
       has_breadcrumb :title => :username
     end
 
-If you would like to display a model as a child of another model, you
-can state that using the `:parent` option:
+To display a model as a child of another model, you state the parent
+by using the `:parent` parameter:
 
     class UserProfile < ActiveRecord::Base
       has_breadcrumb :parent => :user, :title => "Profile"
@@ -35,8 +35,8 @@ As can be seen here, `has_breadcrumb` can accept a `String` on the
 the model which would be suitable. The `:parent` option however, must
 take a `Symbol`.
 
-In addition to giving models breadcrumb object, breadcrumb links can be
-displayed in a view. For example in an erb view for creating a new user,
+Breadcrumb links are displayed in a view by including the `breadcrumb` erb tag. 
+For example in an erb view for creating a new user,
 
     <h2 class="subtitle"><%= breadcrumb @user, 'New' %></h2>
 
