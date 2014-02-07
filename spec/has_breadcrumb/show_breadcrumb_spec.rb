@@ -19,9 +19,9 @@ describe ShowBreadcrumb do
     end
 
     context "when there is only one crumb" do
-      it "should return a single crumb link" do
+      it "should not return a parent link" do
         controller.stub(:url_for => "fake_url")
-        controller.breadcrumb(admin, "Add").should == "<a href=\"fake_url\">Admin</a> > Add Admin"
+        controller.breadcrumb(admin, "Add").should == "<a href=\"fake_url\">Admins</a> &gt; <a href=\"fake_url\">Admin</a> &gt; Add Admin"
       end
     end
   end

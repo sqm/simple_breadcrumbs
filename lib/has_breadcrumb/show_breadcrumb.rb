@@ -15,6 +15,9 @@ module ShowBreadcrumb
     if options.has_key?(:forced_parent)
       crumb_link = url_for :controller => options[:forced_parent].class.to_s.underscore.pluralize, :action => "show", :id => options[:forced_parent].id
       crumb_html = link_to options[:forced_parent].breadcrumb_name, crumb_link
+    elsif crumbs.length == 1
+      crumb_link = url_for :controller => obj.class.to_s.underscore.pluralize
+      crumb_html = link_to obj.class.model_name.human.pluralize, crumb_link
     end
 
     crumbs.reverse.each do |crumb_obj|
