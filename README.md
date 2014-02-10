@@ -1,4 +1,4 @@
-# simple_breadcrumbs
+# SimpleBreadcrumbs
 
 This gem provides a simple and flexible way to create breadcrumbs with Rails active record 
 models. Setting `has_breadcrumb` on a model will enable a view method,
