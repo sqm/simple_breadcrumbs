@@ -6,7 +6,7 @@ require 'has_breadcrumb/version'
 Gem::Specification.new do |gem|
   gem.name          = "has_breadcrumb"
   gem.version       = HasBreadcrumb::VERSION
-  gem.authors       = ["Tim Harvey"]
+  gem.authors       = ["Tim Harvey", "Matt Outten"]
   gem.email         = ["developers@squaremouth.com"]
   gem.description   = %q{Provide breadcrumb links.}
   gem.summary       = %q{Provide links for the current page in a breadcrumb format.}
