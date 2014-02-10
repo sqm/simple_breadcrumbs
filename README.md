@@ -1,4 +1,4 @@
-# HasBreadcrumb
+# SimpleBreadcrumbs
 
 This gem provides a simple and flexible way to create breadcrumbs with Rails active record 
 models. Setting `has_breadcrumb` on a model will enable a view method,
@@ -9,7 +9,7 @@ a breadcrumb format.
 
 Add this line to your application's Gemfile:
 
-    gem 'has_breadcrumb', :git => 'git://github.com/sqm/has_breadcrumb.git'
+    gem 'simple_breadcrumbs'
 
 And then execute:
 
