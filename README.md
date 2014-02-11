@@ -2,7 +2,7 @@
 
 [![Code Climate](https://codeclimate.com/github/sqm/simple_breadcrumbs.png)](https://codeclimate.com/github/sqm/simple_breadcrumbs)
 [![Build Status](https://travis-ci.org/sqm/simple_breadcrumbs.png?branch=master)](https://travis-ci.org/sqm/simple_breadcrumbs)
-[![Coverage Status](https://coveralls.io/repos/sqm/simple_breadcrumbs/badge.png)](https://coveralls.io/r/sqm/simple_breadcrumbs)
+[![Coverage Status](https://coveralls.io/repos/sqm/simple_breadcrumbs/badge.png?branch=master)](https://coveralls.io/r/sqm/simple_breadcrumbs)
 
 This gem provides a simple and flexible way to create breadcrumbs with Rails active record 
 models. Setting `has_breadcrumb` on a model will enable a view method,
