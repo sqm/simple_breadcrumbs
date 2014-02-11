@@ -9,6 +9,9 @@ require 'rails/all'
 require 'rspec/rails'
 require 'simple_breadcrumbs'
 
+require 'coveralls'
+Coveralls.wear!
+
 ActiveSupport.on_load(:active_record) do
   include HasBreadcrumb
 end

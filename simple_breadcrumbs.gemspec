@@ -24,4 +24,5 @@ Gem::Specification.new do |gem|
 
   gem.add_development_dependency 'rspec-rails', '~> 2.13'
   gem.add_development_dependency 'sqlite3', '~> 1.3'
+  gem.add_development_dependency 'coveralls', '~> 0.7.0'
 end
