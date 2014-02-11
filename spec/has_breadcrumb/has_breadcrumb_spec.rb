@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'has_breadcrumb'
+require 'simple_breadcrumbs'
 
 class Father
   include HasBreadcrumb

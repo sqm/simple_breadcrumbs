@@ -7,7 +7,7 @@
 
 require 'rails/all'
 require 'rspec/rails'
-require 'has_breadcrumb'
+require 'simple_breadcrumbs'
 
 ActiveSupport.on_load(:active_record) do
   include HasBreadcrumb
