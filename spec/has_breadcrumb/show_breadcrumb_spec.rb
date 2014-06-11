@@ -30,7 +30,7 @@ describe ShowBreadcrumb do
   end
 
   describe "#breadcrumbs" do
-    before { controller.stub(url_for: "fake_url") }
+    before { allow(controller).to receive_messages(url_for: "fake_url") }
 
     context "when :forced_parent is passed" do
       it "should link to the forced parent" do

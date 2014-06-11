@@ -65,7 +65,7 @@ describe HasBreadcrumb do
 
   describe ".included" do
     it "should respond to has_breadcrumb" do
-      Father.should respond_to(:has_breadcrumb)
+      expect(Father).to respond_to(:has_breadcrumb)
     end
   end
 end
