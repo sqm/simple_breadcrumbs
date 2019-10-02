@@ -22,7 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'activerecord', ['>= 3.0', '< 6']
   gem.add_dependency 'activesupport', ['>= 3.0', '< 6']
 
-  gem.add_development_dependency 'rspec-rails'
-  gem.add_development_dependency 'sqlite3', '~> 1.3'
+  gem.add_development_dependency 'rspec-rails', '~> 3.8'
+  gem.add_development_dependency 'sqlite3', '~> 1.3.13'
   gem.add_development_dependency 'coveralls', '~> 0.7.0'
 end
