@@ -19,10 +19,10 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
-  gem.add_dependency 'activerecord', ['>= 3.0', '< 7']
-  gem.add_dependency 'activesupport', ['>= 3.0', '< 7']
+  gem.add_dependency 'activerecord', ['>= 3.0', '< 8']
+  gem.add_dependency 'activesupport', ['>= 3.0', '< 8']
 
-  gem.add_development_dependency 'rspec-rails', '~> 3.8'
-  gem.add_development_dependency 'sqlite3', '~> 1.3.13'
-  gem.add_development_dependency 'coveralls', '~> 0.7.0'
+  gem.add_development_dependency 'rspec-rails'
+  gem.add_development_dependency 'sqlite3'
+  gem.add_development_dependency 'coveralls'
 end
